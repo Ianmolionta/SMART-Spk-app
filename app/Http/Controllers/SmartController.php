@@ -65,7 +65,23 @@ class SmartController extends Controller
 
         return response()->json([
             'message' => 'Perhitungan SMART selesai',
-            'results' => ResultModel::with('student')->orderBy('rank')->get()
+            'result' => ResultModel::with('student')->orderBy('rank')->get()
         ]);
+
+        return redirect()->route('admin.smart')->with('success', 'Perhitungan SMART selesai!');
     }
+
+    public function showResults()
+    {
+        $results = ResultModel::with('student')->orderBy('rank')->get();
+
+        return view('smart.results', compact('results'));
+    }
+
+    public function adminPage()
+    {
+        $results = ResultModel::with('student')->orderBy('rank')->get();
+        return view('smart.calculate', compact('results'));
+    }
+
 }

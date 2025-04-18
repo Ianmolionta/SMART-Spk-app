@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ResultModel extends Model
 {
-    protected $table = 'results';
+    protected $table = 'result';
     protected $fillable = [
         'student_id',
         'final_score',
@@ -15,7 +15,7 @@ class ResultModel extends Model
 
     public function student()
     {
-        return $this->belongsTo(\App\Models\StudentModel::class);
+        return $this->belongsTo(StudentModel::class);
     }
 
 }

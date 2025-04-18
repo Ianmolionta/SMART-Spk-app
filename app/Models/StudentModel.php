@@ -15,12 +15,12 @@ class StudentModel extends Model
 
     public function scores()
     {
-        return $this->hasMany(\App\Models\ScoreModel::class);
+        return $this->hasMany(ScoreModel::class, 'student_id');
     }
 
     public function result()
     {
-        return $this->hasOne(\App\Models\ResultModel::class);
+        return $this->hasOne(ResultModel::class);
     }
 
 }

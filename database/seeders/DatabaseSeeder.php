@@ -14,14 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('scores')->delete();
-        DB::table('students')->delete();
         DB::table('criteria')->delete();
     
         $this->call([
-            StudentSeeder::class,
             CriteriaSeeder::class,
-            ScoreSeeder::class,
         ]);
     }
 }
